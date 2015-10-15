@@ -1,0 +1,36 @@
+﻿@using Orchard.ContentManagement
+
+@{
+    var userCanRegister = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().UsersCanRegister;
+    var enableLostPassword = WorkContext.CurrentSite.As<Orchard.Users.Models.RegistrationSettingsPart>().EnableLostPassword;
+}
+
+<!--<h1 class="page-title jumbo-text">@Html.TitleForPage((string)Model.Title)</h1>-->
+<h1 class="page-title jumbo-text">Login</h1>
+<p class="intro-text">
+    @T("Escribe tu nombre de usuario y tu contraseña.") 
+    @if(userCanRegister) { @Html.ActionLink(T("Registrate").Text, "Register") @T(" si no tienes cuenta.") }
+</p>
+<hr>
+@Html.ValidationSummary(T("Uups, eso que has escrito no me suena... prueba de nuevo.").ToString())
+@using (Html.BeginFormAntiForgeryPost(Url.Action("LogOn", new { ReturnUrl = Request.QueryString["ReturnUrl"] }))) 
+{
+    <div class="large-6 columns">
+        <ul>
+            <li>
+                <label for="username-email">@T("Usuario")</label>
+                @Html.TextBox("userNameOrEmail", "", new { id = "username-email", autofocus = "autofocus" })
+                @Html.ValidationMessage("userNameOrEmail")
+            </li>
+            <li>
+                <label for="password">@T("Contraseña")</label>
+                @Html.Password("password")
+                @Html.ValidationMessage("password")
+            </li>
+        </ul>
+        <p>
+            <button class="primaryAction" type="submit">@T("Entrar")</button>
+            @if(enableLostPassword) { <text> </text> @Html.ActionLink(T("¿Has olvidado la contraseña?").Text, "RequestLostPassword") }
+        </p>
+    </div>
+}

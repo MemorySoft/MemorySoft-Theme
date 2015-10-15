@@ -1,0 +1,7 @@
+﻿Name: MemorySoft
+Author: Hector Asencio
+Description: MemorySoft is a chil-theme of Foundation Machine, a flexible multi-zone responsive theme based on Foundation4 framework from Zurb.
+Version: 2.0
+Tags: Awesome
+Website: http://orchardproject.net
+Zones: Header, Navigation, Featured, BeforeMain, AsideFirst, Messages, BeforeContent, Content, AfterContent, AsideSecond, AfterMain, TripelFirst, TripelSecond, TripelThird, FooterQuadFirst, FooterQuadSecond, FooterQuadThird, FooterQuadFourth, Footer

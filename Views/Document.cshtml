@@ -1,0 +1,107 @@
+﻿@using Orchard.Mvc.Html;
+@using Orchard.UI.Resources;
+@{
+    RegisterLink(new LinkEntry {Type = "image/x-icon", Rel = "shortcut icon", Href = Url.Content("~/Media/Default/logos/favicon.png")});
+
+    Style.Include("normalize.css");
+    Style.Include("foundation.min.css");
+    Style.Include("bxslider.css");
+    Style.Include("http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
+    Style.Include("site.css");
+    Style.Include("shame.css");
+    Style.Include("//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css");
+    Script.Include("vendor/modernizr.js").AtHead();
+    Script.Include("vendor/jquery.js").AtHead();
+
+    string title = Convert.ToString(Model.Title);
+    string siteName = Convert.ToString(WorkContext.CurrentSite.SiteName);
+}
+<!DOCTYPE html> 
+<!--[if IE 7]> <html class="gt-ie6 lt-ie8 lt-ie9" lang="@WorkContext.CurrentCulture"> <![endif]-->
+<!--[if IE 8]> <html class="gt-ie7 lt-ie9" lang="@WorkContext.CurrentCulture"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="@WorkContext.CurrentCulture"> <!--<![endif]-->
+
+<head> 
+    <meta charset="utf-8" />
+    <title>@Html.Title(title, siteName)</title> 
+    <meta name="keywords" content="software menorca, diseño web menorca, desarrollo web menorca, aplicaciones menorca, programacion menorca, mantenimiento ordenadores menorca, programacion aplicaciones menorca, programas de informatica empresas, diseño web, desarrollo web, consultoria informatica menorca, software de gestion, software empresas, email marketing menorca, tiendas online, gestion supermercados menorca, informatica supermercados">
+    <meta name="description" content="Memory Soft es una empresa de informática dedicada al desarrollo y programación de software, programas de gestion y páginas web, que ofrece soluciones y servicios de informática para empresas en Menorca, Mallorca, Barcelona e Islas Baleares. Teléfono 971 35 29 11.">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width; initial-scale = 1.0; maximum-scale=1.0; user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+    <!--    
+            Estimado Google:
+     
+            Este año me he portado muy bién; no he spameado 
+            ni he usado cloacking o black-SEO, he acabado 
+            todas mis key-words y sus meta-descriptions, he ordenado
+            mi sitemap y configurado correctamente mi robots.txt, además 
+            le he abierto una cuenta en Google+ a mi abuelita y he ayudado
+            a mi papá con su cuenta de Gmail. 
+
+            Espero que te enrrolles, me traigas un buen posicionamiento 
+            natural y un page-rank decente. 
+            Gracias. 
+    -->
+    <meta name="google-site-verification" content="OSq3sMFM718Bc-5BCyUo0DArgB1XCENBTRLc5f87DfI" />
+
+    <!-- iOS & Android icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="shortcut icon" href="img/apple-touch-icon.png">
+
+    <!-- Tile icon for Win8 -->
+    <meta name="msapplication-TileImage" content="img/apple-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#222222">
+
+    <!-- Video 
+    <link href="http://vjs.zencdn.net/4.3/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/4.3/video.js"></script>
+    <style type="text/css">
+      .vjs-default-skin { color: #ffffff; }
+      .vjs-default-skin .vjs-play-progress,
+      .vjs-default-skin .vjs-volume-level { background-color: #ffffff }
+      .vjs-default-skin .vjs-control-bar,
+      .vjs-default-skin .vjs-big-play-button { background: rgba(184,28,28,0.7) }
+      .vjs-default-skin .vjs-slider { background: rgba(184,28,28,0.2333333333333333) }
+      .vjs-default-skin .vjs-control-bar { font-size: 60% }
+    </style>
+    -->
+
+    @Display(Model.Head)
+
+    <script>(function(d){d.className="dyn"+d.className.substring(6,d.className.length);})(document.documentElement);</script> 
+    
+</head> 
+<body>
+
+<!--[if lt IE 8]>
+    <div style="width:100%;height:9999px;background:#fff;position:fixed;z-index:1000;padding:100px 0 0 0;margin:0;">
+        <div class="row">
+            <div class="large-12 columns">
+                <div class="alert-box warning">
+                    <h1 style="color:white;">Lo sentimos pero tu navegador<br/>és demasiado antiguo</h1>
+                    <p>Microsoft ya no dá soporte a tu versión de Internet Explorer y no podemos garantizar que esta web se visualice correctamente.</p>
+                    <hr/>
+                    <p>Para navegar por esta web puedes intentar una de las siguientes opciones:</p>
+                    <ul>
+                        <li>Instalar <a style="color:#ccc;" href="https://www.google.es/webhp?hl=es&tab=ww#hl=es&tbo=d&sclient=psy-ab&q=alternativas+a+internet+explorer&oq=alternativas+a+internet+explorer&gs_l=hp.3..0j0i8i30.15362.20052.1.20822.17.17.0.0.0.0.286.3235.0j14j3.17.0...0.0...1c.1.3.psy-ab.bG4L7HNq2F0&pbx=1&bav=on.2,or.r_gc.r_pw.r_qf.&bvm=bv.42452523,d.d2k&fp=3e10f96642887b04&biw=1920&bih=989">otro navegador</a> en tu ordenador.</li>
+                        <li><a style="color:#ccc;" href="http://www.google.com/chromeframe/?hl=es&quickenable=true">Instalar Chrome Frame</a> para Internet Explorer.</li>
+                        <li><a style="color:#ccc;" href="http://windows.microsoft.com/es-ES/internet-explorer/downloads/ie-8">Actualizar</a> a una versión superior de Internet Explorer.</li>
+                    </ul>
+                    <h4 style="color:white;">Disculpa las molestias</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+<![endif]-->
+
+@* Layout (template) is in the Body zone @ the default position (nothing, zero, zilch) *@
+@Display(Model.Body)
+@Display(Model.Tail)
+
+</body>
+</html>

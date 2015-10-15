@@ -1,0 +1,38 @@
+﻿@using System.Web.Mvc;
+<hr/>
+<div class="user-display large-4 columns">
+    @if (WorkContext.CurrentUser != null) {
+        <span class="user-actions welcome">
+            @T("<strong>{0}</strong> | ", new HtmlString(Html.ActionLink( Convert.ToString(Html.ItemDisplayText(WorkContext.CurrentUser)), "ChangePassword", new { Controller = "Account", Area = "Orchard.Users" }).ToString()))
+        </span>
+        <span class="user-actions">
+            @*
+            @Html.ActionLink(T("Sign Out").ToString(), "LogOff", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = Context.Request.RawUrl }, new { rel = "nofollow" })
+            *@
+            @if (AuthorizedFor(Orchard.Security.StandardPermissions.AccessAdminPanel)) {
+                @Html.ActionLink(T("Panel").ToString(), "Index", new {Area = "Dashboard", Controller = "Admin"})
+            }
+        </span>
+    } else {
+        <span class="user-actions">@Html.ActionLink(T("Entrar").ToString(), "LogOn", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = (Request.QueryString["ReturnUrl"] ?? Request.RawUrl) }, new { rel = "nofollow" })</span>
+    }
+</div>
+
+<div class="credits large-4 columns">
+    <p class="copyright">
+        @T("&#169; Memory Soft 2013.")
+    </p>
+</div>
+
+<div class="large-4 columns">
+    <!-- AddThis Button BEGIN -->
+        <div class="addthis_toolbox addthis_default_style addthis_16x16_style">
+        <a class="addthis_button_facebook"></a>
+        <a class="addthis_button_twitter"></a>
+        <a class="addthis_button_linkedin"></a>
+        <a class="addthis_button_google_plusone_share"></a>
+        </div>
+        <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4ee1c2d918b42abf"></script>
+        <!-- AddThis Button END -->
+</div>
